@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap');
+
+.tw { font-family: 'Figtree', ui-sans-serif, system-ui, sans-serif; color: #0E2A38; }
+.tw * { box-sizing: border-box; }
+.tw button { font-family: inherit; cursor: pointer; }
+.font-display { font-family: 'Bricolage Grotesque', 'Figtree', ui-rounded, system-ui, sans-serif; letter-spacing: -0.015em; }
+
+/* Brand colours as utilities */
+.bg-abyss { background: #062A40; } .bg-deep { background: #0B4F6C; }
+.bg-ocean { background: #0A7EA4; } .bg-shallows { background: #5CC3DB; }
+.bg-foam { background: #EAF6FA; }  .bg-mist { background: #CFE6EE; }
+.text-abyss { color: #062A40; } .text-ocean { color: #0A7EA4; }
+.text-shallows { color: #5CC3DB; } .text-mist { color: #CFE6EE; }
+.text-ink { color: #0E2A38; }     .text-warn { color: #B5482A; }
+.border-mist { border-color: #CFE6EE; } .border-ocean { border-color: #0A7EA4; }
+
+/* Phone shell: full-bleed on phones, framed on larger screens */
+.phone-shell { width: 100%; max-width: 420px; height: min(100vh, 860px); }
+@media (min-width: 480px) {
+  .phone-shell { border-radius: 36px; box-shadow: 0 30px 80px rgba(6,42,64,.35); }
+}
+
+/* Buttons */
+.btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+  border-radius: 16px; padding: 14px 18px; font-weight: 700; font-size: 16px; border: 0;
+  transition: transform .12s ease, background .2s ease; }
+.btn:active { transform: scale(.98); }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+.btn-primary { background: #0A7EA4; color: #fff; }
+.btn-primary:hover:not(:disabled) { background: #0B6F92; }
+.btn-shallows { background: #5CC3DB; color: #062A40; }
+.btn-outline { background: #fff; color: #0E2A38; border: 1.5px solid #CFE6EE; }
+
+/* Inputs (16px font prevents iOS zoom-on-focus) */
+.field { width: 100%; border: 1.5px solid #CFE6EE; border-radius: 14px; padding: 12px 14px;
+  font-size: 16px; font-family: inherit; background: #fff; color: #0E2A38; }
+.field:focus { outline: none; border-color: #0A7EA4; box-shadow: 0 0 0 3px rgba(92,195,219,.35); }
+.field-error { border-color: #B5482A; }
+
+.tw button:focus-visible, .tw [role="button"]:focus-visible, .tw [role="checkbox"]:focus-visible {
+  outline: 3px solid #5CC3DB; outline-offset: 2px; }
+
+.spinner { width: 18px; height: 18px; border: 2.5px solid currentColor; border-right-color: transparent;
+  border-radius: 50%; animation: spin .7s linear infinite; }
+
+/* Motion */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes wave-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes ring-out { 0% { transform: translate(-50%,-50%) scale(.4); opacity: .7; }
+  100% { transform: translate(-50%,-50%) scale(2.6); opacity: 0; } }
+@keyframes pop-in { 0% { transform: scale(.6); opacity: 0; } 60% { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; } }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes float-up { 0% { transform: translateY(4px); opacity: 0; } 20% { opacity: 1; }
+  100% { transform: translateY(-20px); opacity: 0; } }
+@keyframes toast-in { from { transform: translate(-50%, 12px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; } }
+@keyframes drop-pin { 0% { transform: translate(-50%,-170%); opacity: 0; }
+  70% { transform: translate(-50%,-92%); opacity: 1; } 100% { transform: translate(-50%,-100%); opacity: 1; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .tw *, .tw *::before, .tw *::after { animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
